@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html lang="fr" ng-app="websitesapp">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr" ng-app="websitesapp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr" ng-app="websitesapp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr" ng-app="websitesapp"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" lang="fr" ng-app="websitesapp"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="fr" ng-app="websitesapp"> <!--<![endif]-->
 <head>
     <!-- TITLE -->
     <title>Benjamin Vauchel</title>
@@ -33,8 +33,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
 	<script>
 		angular.module("websitesapp",["websitesappFilters"]);
-		function WebsiteListCtrl(e,t){t.get("skills/skills.json").success(function(n){e.skills=n;t.get("websites/websites.json").success(function(t){e.websites=t;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];for(var i=0;i<e.websites.length;i++){website=e.websites[i];for(var s=0;s<website.skills.length;s++){websiteSkill=website.skills[s];websiteSkill==skill.name&&skill.proficiency++}}}}})});e.skillsOrder="proficiency";e.websitesOrder="date";e.checkSkill=function(e){e.checked?e.checked=!1:e.checked=!0};e.skillsFilter=function(t){skillChecked=!1;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];if(skill.checked){skillChecked=!0;for(var i=0;i<t.skills.length;i++){websiteSkill=t.skills[i];if(websiteSkill==skill.name)return!0}}}}return!skillChecked};e.ideaFilter=function(t){return t.firm!="IDEA Conseil"?!1:e.skillsFilter(t)};e.omycodeFilter=function(t){return t.firm!="Développeur indépendant"?!1:e.skillsFilter(t)}}WebsiteListCtrl.$inject=["$scope","$http"];
-		angular.module("websitesappFilters",[]).filter("favorite",function(){return function(e){return e?"✭":""}}).filter("check",function(){return function(e){return e?"checked":""}}).filter("join",function(){return function(e){return e.join(", ")}}).filter("percent",function(){return function(e,t){return e/t*100}});
+		function WebsiteListCtrl(e,t){t.get("skills/skills.json").success(function(n){e.skills=n;t.get("websites/websites.json").success(function(t){e.websites=t;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];for(var i=0;i<e.websites.length;i++){website=e.websites[i];for(var s=0;s<website.skills.length;s++){websiteSkill=website.skills[s];websiteSkill==skill.name&&skill.proficiency++}}}}})});e.skillsOrder="proficiency";e.websitesOrder="date";e.checkSkill=function(e){e.checked?e.checked=!1:e.checked=!0};e.skillsFilter=function(t){skillChecked=!1;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];if(skill.checked){skillChecked=!0;for(var i=0;i<t.skills.length;i++){websiteSkill=t.skills[i];if(websiteSkill==skill.name)return!0}}}}return!skillChecked};e.ideaFilter=function(t){return t.firm!="IDEA Conseil"?!1:e.skillsFilter(t)};e.omycodeFilter=function(t){return t.firm!="Développeur indépendant"?!1:e.skillsFilter(t)};e.width=function(e,t){width=Math.round(e.proficiency/t.length*100);return{width:width+"%"}}}WebsiteListCtrl.$inject=["$scope","$http"];
+		angular.module("websitesappFilters",[]).filter("favorite",function(){return function(e){return e?"✭":""}}).filter("check",function(){return function(e){return e?"checked":""}}).filter("join",function(){return function(e){return e.join(", ")}}).filter("percent",function(){return function(e,t){return Math.round(e/t*100)}});
 	</script>
 
 </head>
@@ -72,7 +72,7 @@
 							<input id="{{skill.name}}" type="checkbox" ng-click="checkSkill(skill)" checked="{{skill.checked | check}}"/>
 							<label for="{{skill.name}}">{{skill.name}} {{skill.favorite | favorite}}</label>
 							<meter min="0" max="{{websites.length}}" title="Nombre de sites correspondants : {{skill.proficiency}}" value="{{skill.proficiency}}">
-								<p class="meter"><span class="value" style="width:{{skill.proficiency | percent:websites.length}}%"></span></p>
+								<p class="meter"><span class="value" ng-style="width(skill,websites)"></span></p>
 							</meter>
 						</li>
 					</ul>

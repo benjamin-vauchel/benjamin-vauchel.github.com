@@ -97,5 +97,10 @@ function WebsiteListCtrl($scope, $http)
 			return $scope.skillsFilter(websiteToFilter);
 		}
 	};
+
+	$scope.width = function(skill, websites){
+		width = Math.round(skill.proficiency / websites.length * 100);
+		return {'width': width+'%'};//skill.proficiency | percent:websites.length}}%
+	}
 }
 WebsiteListCtrl.$inject = ['$scope', '$http'];

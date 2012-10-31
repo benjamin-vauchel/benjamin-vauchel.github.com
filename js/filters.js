@@ -16,6 +16,6 @@ angular.module('websitesappFilters', [])
 })
 .filter('percent', function() {
   return function(input, val) {
-    return input / val * 100;
+    return Math.round(input / val * 100);
   };
 });
