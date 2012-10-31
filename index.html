@@ -30,10 +30,12 @@
     <!--[if lt IE 9]>
       <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-	<script src="js/app-ck.js"></script>
-	<script src="js/filters-ck.js"></script>
-	<script src="js/controllers-ck.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+	<script>
+		angular.module("websitesapp",["websitesappFilters"]);
+		function WebsiteListCtrl(e,t){t.get("skills/skills.json").success(function(n){e.skills=n;t.get("websites/websites.json").success(function(t){e.websites=t;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];for(var i=0;i<e.websites.length;i++){website=e.websites[i];for(var s=0;s<website.skills.length;s++){websiteSkill=website.skills[s];websiteSkill==skill.name&&skill.proficiency++}}}}})});e.skillsOrder="proficiency";e.websitesOrder="date";e.checkSkill=function(e){e.checked?e.checked=!1:e.checked=!0};e.skillsFilter=function(t){skillChecked=!1;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];if(skill.checked){skillChecked=!0;for(var i=0;i<t.skills.length;i++){websiteSkill=t.skills[i];if(websiteSkill==skill.name)return!0}}}}return!skillChecked};e.ideaFilter=function(t){return t.firm!="IDEA Conseil"?!1:e.skillsFilter(t)};e.omycodeFilter=function(t){return t.firm!="Développeur indépendant"?!1:e.skillsFilter(t)}}WebsiteListCtrl.$inject=["$scope","$http"];
+		angular.module("websitesappFilters",[]).filter("favorite",function(){return function(e){return e?"✭":""}}).filter("check",function(){return function(e){return e?"checked":""}}).filter("join",function(){return function(e){return e.join(", ")}}).filter("percent",function(){return function(e,t){return e/t*100}});
+	</script>
 
 </head>
 <body ng-controller="WebsiteListCtrl">
@@ -43,19 +45,6 @@
 	<section id="sidebar">
 		<div id="profile" class="sidebar-section">
 			<img alt="" height="96" class="avatar" src="images/avatar.png" width="96" />
-			<!--<div style="border-left:solid 1px #ccc;padding-left:10px;overflow:hidden">
-				<p class="social">
-					<a href="https://twitter.com/BenjaminVauchel" class="btn-twitter" title="Twitter">Twitter</a>
-					<a href="https://github.com/benjamin-vauchel" class="btn-github" title="Github">Github</a>
-				</p>
-				<hgroup>
-					<h1>Benjamin Vauchel</h1>
-					<h2>Développeur Web</h2>
-				</hgroup>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p><br/>
-				<p>&#10029; Technos favorites &#10029; : <br/>HTML5, CSS3, jQuery, MODx, PHP, MySQL</p>
-			</div>-->
 			<p class="social">
 				<a href="https://twitter.com/BenjaminVauchel" class="btn-twitter" title="Twitter">Twitter</a>
 				<a href="https://github.com/benjamin-vauchel" class="btn-github" title="Github">Github</a>
@@ -66,23 +55,6 @@
 			</hgroup>
 
 			<script>document.write('<n uers="znvygb:orawnzvadotinhpuryattznvydotpbz" pynff="oga oga-uvtuyvtug"><fcna>Pbagnpg</fcna></n>'.replace(/at/g,"@").replace(/dot/g,".").replace(/[a-zA-Z]/g,  function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script>
-		
-			<!--
-			<form name="contactForm" id="form-contact">
-				<p ng-class="{error: contactForm.email.$invalid}">
-					<label for="form-contact-email">Votre email</label>
-					<input class="text" id="form-contact-email" name="email" ng-model="mail.email" required type="email"/> 
-					<span ng-show="contactForm.email.$error.required" class="help-inline">Veuillez indiquer votre adresse email</span>
-					<span ng-show="contactForm.email.$error.email" class="help-inline">Cette adresse email n'est pas valide</span>
-				</p>
-				<p ng-class="{error: contactForm.msg.$invalid}">
-					<label for="form-contact-msg">Votre message</label>
-					<textarea id="form-contact-msg" name="msg" ng-model="mail.msg" required></textarea>
-					<span ng-show="contactForm.msg.$error.required" class="help-inline">Veuillez rédiger un message</span>
-				</p>
-				<button class="submit" id="form-contact-submit" ng-click="sendForm()" ng-disabled="isClean() || contactForm.$invalid" type="submit">Envoyer</button>
-			</form>
-				{{mail}}-->
 
 			<p class="bio">&#10029; Technos favorites &#10029; : <br/>HTML5, CSS3, jQuery, MODx, PHP, MySQL</p>
 		</div>
