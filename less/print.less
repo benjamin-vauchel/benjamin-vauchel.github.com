@@ -1,0 +1,78 @@
+@import "reset.less";
+
+@import "elements.less";
+@import "preboot.less";
+
+@import "layout.less";
+@import "typography.less";
+
+@import "content.less";
+
+// PRINT RESET
+// -----------
+*{	
+	background: transparent !important;
+}
+p, blockquote { 
+    orphans:	3;
+    widows:		3; 
+} 
+blockquote, ul, ol, section{ 
+    page-break-inside:	avoid; 
+} 
+h1, h2, h3, caption {
+    page-break-after:	avoid;
+}
+.print{
+	display:block;
+}
+.screen,{
+	display: none;
+}
+
+// CONTENT
+// ------
+#sidebar{
+	float: 			none;
+	width: 			auto;
+}
+#nav{
+	display: none;
+}
+#profile{
+	border-bottom: 	1px solid #ccc;
+	margin: 		0 0 2em 0;
+	padding: 		0 0 2em 0;
+
+	.social{
+		display: none !important;
+	}
+	.btn{
+		display: none;
+	}
+	.bio{
+		clear: 			none;
+		padding-top: 	0;
+	}
+}
+#search,
+#skills{
+	display: none;
+}
+#websites{
+	margin: 	0;
+	padding: 	0;
+
+	.firm{
+		& > h1{
+			border: none;
+		}
+	}
+
+	.website{
+		border: 	none;
+		margin: 	0 30px 20px 30px;
+		padding: 	0;
+		width: 		275px;
+	}
+}

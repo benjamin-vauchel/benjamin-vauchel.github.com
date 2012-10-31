@@ -1,0 +1,1 @@
+angular.module("websitesappFilters",[]).filter("favorite",function(){return function(e){return e?"✭":""}}).filter("check",function(){return function(e){return e?"checked":""}}).filter("join",function(){return function(e){return e.join(", ")}}).filter("percent",function(){return function(e,t){return e/t*100}});

@@ -1,0 +1,33 @@
+/* -- COLOR -- */
+@main_color:		#5b5b5b;
+@highlight_color:	#3e8cc1;
+
+/* -- FONT -- */
+@main_font :	'CantarellRegular', 'Tahoma', sans-serif;
+@second_font :	'CantarellOblique', 'Tahoma', sans-serif;
+
+/* -- FONT SIZE -- */
+@normal:	1em;
+@small:		.9em;
+
+/* -- BASELINE GRID -- */
+@basefont:	12px;
+@baseline:	1.5em;
+
+/* -- MEASURES --*/
+@width:		940px;
+
+.box-sizing(@argument)
+{
+	box-sizing: @argument;
+	-moz-box-sizing: @argument;
+	-webkit-box-sizing: @argument;
+	-o-box-sizing: @argument;
+}
+.text-shadow(@arguments)
+{
+	text-shadow:  			@arguments;
+	-moz-text-shadow:  		@arguments;
+	-webkit-text-shadow: 	@arguments;
+	-o-text-shadow: 		@arguments;
+}

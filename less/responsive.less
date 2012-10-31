@@ -1,0 +1,181 @@
+/*@import "elements.less";
+@import "preboot.less";*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (max-width : 767px) {
+/* Styles */
+
+	// LAYOUT
+	// ------
+	body{
+		background-image: 	none;
+		padding: 			0;
+		-webkit-text-size-adjust: 100%;
+	}
+	
+	.visible-phone,
+	.hidden-tablet,
+	.hidden-desktop{
+		display: block !important;
+	}
+	.hidden-phone,
+	.visible-tablet,
+	.visible-desktop{
+		display: none !important;
+	}
+
+	#sidebar{
+		float: none;
+		width: auto;
+	}
+
+	#nav{
+		display: none;
+	}
+
+	#websites{
+		margin: 0;
+		padding: 0 28px;
+
+		.firm{
+			& > h1{
+				border-bottom: none;
+				height: auto;
+
+				span{
+					background: none;
+				}
+			}
+		}
+
+		.website{
+			float: 	none;
+			margin: auto;
+			width: 	auto;
+
+			hgroup,
+			p{
+				margin: auto;
+				width: 	235px;
+			}
+		}
+	}
+	
+	/*
+	#footer
+	{
+		min-width: @width !important;
+	}
+*/
+	
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+/* Styles */
+	
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+
+	#websites{
+		.website{
+			float: 	none;
+			margin: auto;
+			width: 	auto;
+
+			hgroup,
+			p{
+				margin: auto;
+				width: 	235px;
+			}
+		}
+	}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+
+	// LAYOUT
+	// ------
+	body{
+		background-image: 	none;
+		padding: 			0;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	.visible-phone,
+	.hidden-tablet,
+	.hidden-desktop{
+		display: block !important;
+	}
+	.hidden-phone,
+	.visible-tablet,
+	.visible-desktop{
+		display: none !important;
+	}
+
+	#sidebar{
+		float: none;
+		width: auto;
+	}
+
+	#nav{
+		display: none;
+	}
+
+	#websites{
+		margin: 0;
+		padding: 0 28px;
+
+		.website{
+			margin: 15px;
+		}
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
