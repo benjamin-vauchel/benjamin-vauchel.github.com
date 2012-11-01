@@ -186,7 +186,7 @@
 		"date" : "2012-05",
 		"firm" : "Développeur indépendant",
 		"description" : "Intégration et développement du site fullscreen et de la boutique Prestashop d'Esprit Loft, vendeur de meubles design personnalisables et sur mesure",
-		"skills" : ["HTML5", "CSS3", "LESS", "Fullscreen", "Prestashop", "PHP", "MySQL", "jQuery", "Backbone", "API Mailjet", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
+		"skills" : ["HTML5", "CSS3", "LESS", "Fullscreen", "Prestashop", "Smarty", "PHP", "MySQL", "jQuery", "Backbone", "API Mailjet", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
 	},
 	{
 		"name" : "Calle Ocho",
@@ -195,7 +195,7 @@
 		"date" : "2012-10",
 		"firm" : "Développeur indépendant",
 		"description" : "Intégration et développement de la boutique Prestashop de la Calle Ocho.",
-		"skills" : ["HTML5", "CSS3", "LESS", "Prestashop", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Analyse", "Documentation"]
+		"skills" : ["HTML5", "CSS3", "LESS", "Prestashop", "Smarty", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Analyse", "Documentation"]
 	},
 	{
 		"name" : "Portfolio",
