@@ -149,7 +149,7 @@
 		"image" : "images/screenshots/groupe-bsa.jpg",
 		"date" : "2012-02",
 		"firm" : "Développeur indépendant",
-		"description" : "Site vitrine de Transmission Aquitaine basé sur MODx Revolution",
+		"description" : "Site vitrine du groupe immobilier BSA basé sur MODx Revolution",
 		"skills" : ["HTML5", "CSS3", "LESS", "MODx", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Analyse", "Documentation", "Cahier des charges"]
 	},
 	{
