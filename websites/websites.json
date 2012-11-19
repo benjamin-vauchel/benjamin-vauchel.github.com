@@ -186,7 +186,7 @@
 		"date" : "2012-05",
 		"firm" : "Développeur indépendant",
 		"description" : "Intégration et développement du site fullscreen et de la boutique Prestashop d'Esprit Loft, vendeur de meubles design personnalisables et sur mesure",
-		"skills" : ["HTML5", "CSS3", "LESS", "Fullscreen", "Prestashop", "Smarty", "PHP", "MySQL", "jQuery", "Backbone", "API Mailjet", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
+		"skills" : ["HTML5", "CSS3", "LESS", "Fullscreen", "Prestashop", "Smarty", "PHP", "MySQL", "jQuery", "Backbone", "API Mailjet", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "ExtendScript Toolkit", "Sublime Text", "Documentation"]
 	},
 	{
 		"name" : "Calle Ocho",
@@ -205,5 +205,14 @@
 		"firm" : "Développeur indépendant",
 		"description" : "Ce même portfolio que vous parcourez en ce moment.",
 		"skills" : ["HTML5", "CSS3", "LESS", "Responsive design", "PHP", "AngularJS", "Git", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Analyse", "Documentation"]
+	},
+	{
+		"name" : "Résidences Primavera",
+		"url" : "www.residences-primavera.fr",
+		"image" : "images/screenshots/residences-primavera.jpg",
+		"date" : "2012-11",
+		"firm" : "Développeur indépendant",
+		"description" : "Intégration et développement du site des Résidences Primavera basé sur MODx Revolution",
+		"skills" : ["HTML5", "CSS3", "LESS", "MODx", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
 	}
 ]
