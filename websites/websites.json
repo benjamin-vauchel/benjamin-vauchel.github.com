@@ -214,5 +214,14 @@
 		"firm" : "Développeur indépendant",
 		"description" : "Intégration et développement du site des Résidences Primavera basé sur MODx Revolution",
 		"skills" : ["HTML5", "CSS3", "LESS", "MODx", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Jenkins", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
+	},
+	{
+		"name" : "Les Ailes de Pégase",
+		"url" : "www.les-ailes-de-pegase.com",
+		"image" : "images/screenshots/les-ailes-de-pegase.jpg",
+		"date" : "2013-01",
+		"firm" : "Développeur indépendant",
+		"description" : "Migration d'un site statique vers Wordpress. Création d'un thème Wordpress sur-mesure. Intégration d'une boutique WooCommerce.",
+		"skills" : ["HTML5", "CSS3", "LESS", "Wordpress", "PHP", "MySQL", "jQuery", "SVN", "Apache", "Redmine (bugtracker)", "Photoshop", "Sublime Text", "Documentation"]
 	}
 ]

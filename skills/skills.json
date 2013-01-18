@@ -3,109 +3,113 @@
 "name" : "Développement web",
 "skills" : [
   {
-    "name": "HTML5", 
-    "proficiency": 0,
-    "favorite" : 1
-  }, 
-  {
-    "name": "XHTML", 
-    "proficiency": 0
-  },  
-  {
-    "name": "Smarty", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "Schema.org", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "CSS3", 
-    "proficiency": 0,
-    "favorite" : 1
-  }, 
-  {
-    "name": "CSS", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "LESS", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "Responsive design", 
-    "proficiency": 0,
-    "favorite" : 1
-  }, 
-  {
-    "name": "Fullscreen", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "PHP", 
-    "proficiency": 0,
-    "favorite" : 1
-  }, 
-  {
-    "name": "APC", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "LDAP", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "CAS", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "MySQL", 
-    "proficiency": 0,
-    "favorite" : 1
-  }, 
-  {
-    "name": "jQuery", 
+    "name": "HTML5",
     "proficiency": 0,
     "favorite" : 1
   },
   {
-    "name": "Mootools", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "Backbone", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "AngularJS", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "MODx", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "Prestashop", 
-    "proficiency": 0
-  }, 
-  {
-    "name": "symfony 1.4", 
+    "name": "XHTML",
     "proficiency": 0
   },
   {
-    "name": "API Google", 
+    "name": "Smarty",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "API Mailjet", 
+    "name": "Schema.org",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "API Twitter", 
+    "name": "CSS3",
+    "proficiency": 0,
+    "favorite" : 1
+  },
+  {
+    "name": "CSS",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "API Kewego", 
+    "name": "LESS",
+    "proficiency": 0
+  },
+  {
+    "name": "Responsive design",
+    "proficiency": 0,
+    "favorite" : 1
+  },
+  {
+    "name": "Fullscreen",
+    "proficiency": 0
+  },
+  {
+    "name": "PHP",
+    "proficiency": 0,
+    "favorite" : 1
+  },
+  {
+    "name": "APC",
+    "proficiency": 0
+  },
+  {
+    "name": "LDAP",
+    "proficiency": 0
+  },
+  {
+    "name": "CAS",
+    "proficiency": 0
+  },
+  {
+    "name": "MySQL",
+    "proficiency": 0,
+    "favorite" : 1
+  },
+  {
+    "name": "jQuery",
+    "proficiency": 0,
+    "favorite" : 1
+  },
+  {
+    "name": "Mootools",
+    "proficiency": 0
+  },
+  {
+    "name": "Backbone",
+    "proficiency": 0
+  },
+  {
+    "name": "AngularJS",
+    "proficiency": 0
+  },
+  {
+    "name": "MODx",
+    "proficiency": 0
+  },
+  {
+    "name": "Wordpress",
+    "proficiency": 0
+  },
+  {
+    "name": "Prestashop",
+    "proficiency": 0
+  },
+  {
+    "name": "symfony 1.4",
+    "proficiency": 0
+  },
+  {
+    "name": "API Google",
+    "proficiency": 0
+  },
+  {
+    "name": "API Mailjet",
+    "proficiency": 0
+  },
+  {
+    "name": "API Twitter",
+    "proficiency": 0
+  },
+  {
+    "name": "API Kewego",
     "proficiency": 0
   }
 ]
@@ -114,41 +118,41 @@
 "name" : "Serveurs",
 "skills" : [
   {
-    "name": "Apache", 
+    "name": "Apache",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Nginx", 
+    "name": "Nginx",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "mod_pagespeed", 
+    "name": "mod_pagespeed",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "IIS", 
+    "name": "IIS",
     "proficiency": 0
   }
 ]
 },
 {
 "name" : "Gestionnaires de version",
-"skills" : [ 
+"skills" : [
   {
-    "name": "SVN", 
+    "name": "SVN",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Git", 
+    "name": "Git",
     "proficiency": 0
   }
 ]
 },
 {
 "name" : "Intégration Continue",
-"skills" : [ 
+"skills" : [
   {
-    "name": "Jenkins", 
+    "name": "Jenkins",
     "proficiency": 0
   }
 ]
@@ -157,27 +161,27 @@
 "name" : "Logiciels",
 "skills" : [
   {
-    "name": "Eclipse", 
+    "name": "Eclipse",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Coda", 
+    "name": "Coda",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Sublime Text", 
+    "name": "Sublime Text",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Photoshop", 
+    "name": "Photoshop",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "After Effects", 
+    "name": "After Effects",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "ExtendScript Toolkit", 
+    "name": "ExtendScript Toolkit",
     "proficiency": 0
   }
 ]
@@ -186,19 +190,19 @@
 "name" : "Gestion de projet",
 "skills" : [
   {
-    "name": "Redmine (bugtracker)", 
+    "name": "Redmine (bugtracker)",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Cahier des charges", 
+    "name": "Cahier des charges",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Analyse", 
+    "name": "Analyse",
     "proficiency": 0
-  }, 
+  },
   {
-    "name": "Documentation", 
+    "name": "Documentation",
     "proficiency": 0
   }]
 }
