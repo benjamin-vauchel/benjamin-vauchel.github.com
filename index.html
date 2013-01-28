@@ -9,14 +9,14 @@
     <title>Benjamin Vauchel - Développeur web</title>
 
     <!-- META -->
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
     <meta name="description" content="" />
     <meta name="author" content="Bejamin Vauchel" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <!-- CSS -->
     <link rel="stylesheet" media="screen" href="css/screen.css" />
@@ -24,109 +24,292 @@
 
     <!-- JS -->
     <!--[if lt IE 9]>
-      <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script>if (typeof jQuery === 'undefined') document.write('<script src="assets/js/jquery-1.9.0.min.js"><\/script>');</script>
+    <script src="js/jquery.masonry.min.js"></script>
+    <script src="js/jquery.jrumble.1.3.min.js"></script>
+    <script>
+    $(function(){
+        // Initialisation du bouton mail tremblotant
+        $('#mail').jrumble();
 
-	<script type="text/javascript">
+        // Création de la mosaique Masonry
+        var $container = $('#websites');
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36039205-1']);
-	  _gaq.push(['_trackPageview']);
+        $container.hide();
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+        $container.imagesLoaded( function(){
+            $container.masonry({
+                itemSelector : '.website:not(.hidden)',
+                gutterWidth : 10,
+                columnWidth: 200,
+                isAnimated:true
+            });
+            $container.fadeIn();
+            $container.masonry('reload');
+        });
 
-	</script>
+        // Affichage du détail d'un site lors d'un clic sur sa miniature
+        $('.thumb').click(function(e){
+            e.preventDefault();
+            $website = $(this).parent();
+            $container.find('.active').removeClass('active');
+            $website.css('visibility', 'hide');
+            $website.addClass('active');
+            $container.masonry('reload');
+            $website.hide();
+            $website.find('figcaption').css('right', '-100%');
+            $website.fadeIn(function(){
+                $website.find('figcaption').css({
+                    right: 0
+                });
+            });
+        })
+
+        // Gestion des filtres de compétences
+        $('#top li').click(function(e){
+            e.preventDefault();
+
+            var skill = $(this).html().toLowerCase().replace('/','-');
+
+            if ($(this).hasClass('more')) {
+                $('#mail').trigger('startRumble');
+                $('#top .alert').show();
+            } else if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $container.find('.website').removeClass('hidden');
+                $container.find('.active').removeClass('active');
+                $container.masonry('reload');
+            } else {
+                $(this).parent().find('.active').removeClass('active');
+                $(this).addClass('active');
+
+                $container.find('.website').removeClass('hidden');
+                $container.find('.active').removeClass('active');
+                $container.find('.website:not([data-skills~='+skill+'])').addClass('hidden');
+                $container.masonry('reload');
+            }
+        });
+        $('#top .more').hover(function(){
+            $('#mail').trigger('stopRumble');
+            $('#top .alert').hide();
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36039205-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
 
 </head>
 <body ng-controller="WebsiteListCtrl">
-	<!--[if lte IE 7]>
+    <!--[if lte IE 7]>
     <p class="chromeframe">Vous utilisez un navigateur dépassé. <a href="http://browsehappy.com/">Mettez à jour votre navigateur </a> ou <a href="http://www.google.com/chromeframe/?redirect=true">installer Google Chrome Frame</a> pour améliorer votre expérience.</p>
     <![endif]-->
-	<section id="sidebar">
-		<div id="profile" class="sidebar-section">
-			<img alt="" height="96" class="avatar" src="images/avatar.png" width="96" />
-			<p class="social">
-				<a href="https://twitter.com/BenjaminVauchel" class="btn-twitter" title="Twitter">Twitter</a>
-				<a href="https://github.com/benjamin-vauchel" class="btn-github" title="Github">Github</a>
-			</p>
-			<hgroup>
-				<h1>Benjamin Vauchel</h1>
-				<h2>Développeur web</h2>
-			</hgroup>
 
-			<script>document.write('<n uers="znvygb:orawnzvadotinhpuryattznvydotpbz" pynff="oga oga-uvtuyvtug"><fcna>Pbagnpg</fcna></n>'.replace(/at/g,"@").replace(/dot/g,".").replace(/[a-zA-Z]/g,  function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script>
+    <div id="top">
+        <p><i class="icon">l</i> Vous recherchez une compétence en particulier ?</p>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>PHP/MySQL</li>
+            <li>jQuery</li>
+            <li>CMS</li>
+            <li>e-Commerce</li>
+            <li>Frameworks PHP</li>
+            <li>Frameworks JS</li>
+            <li>Microdata</li>
+            <li>Design</li>
+            <li class="more">...</li>
+        </ul>
+        <p class="alert alert-info">Contactez moi pour en savoir plus</p>
+    </div>
 
-			<p class="bio">&#10029; Technos favorites &#10029; : <br/>HTML5, CSS3, jQuery, MODx, PHP, MySQL</p>
-		</div>
+    <header id="header">
+        <div class="profile">
+            <hgroup>
+                <h1>Benjamin Vauchel</h1>
+                <h2>Développeur Web</h2>
+            </hgroup>
+        </div>
+        <ul>
+            <li id="mail"><script>document.write('<n uers="znvygb:orawnzvadotinhpuryattznvydotpbz" pynff="oga oga-uvtuyvtug"><v pynff="vpba">z</v></n>'.replace(/at/g,"@").replace(/dot/g,".").replace(/[a-zA-Z]/g,  function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script>
+</li>
+            <li><a href="https://twitter.com/BenjaminVauchel" class="btn-twitter" title="Twitter"><i class="icon">t</i></a></li>
+            <li><a href="https://github.com/benjamin-vauchel" class="btn-github" title="Github"><i class="icon">g</i></a></li>
+        </ul>
+    </header>
 
-		<nav id="nav">
-			<p class="sidebar-section">Ci-dessous la liste de mes compétences classées en fonction du nombre de sites dans lesquels elles ont été utilisées.</p>
-			<div id="search" class="sidebar-section">
-				<input autofocus class="search" ng-model="query" onclick="this.select()" type="search" placeholder="Exemples : html, css3, ldap"/>
-			</div>
-			<div id="skills" class="sidebar-section">
-				<div ng-repeat="skillCategory in skills">
-					<h3><span>{{skillCategory.name}}</span></h3>
-					<ul>
-						<li ng-repeat="skill in skillCategory.skills | filter:query | orderBy:skillsOrder:true">
-							<input id="{{skill.name}}" type="checkbox" ng-click="checkSkill(skill)" checked="{{skill.checked | check}}"/>
-							<label for="{{skill.name}}">{{skill.name}} {{skill.favorite | favorite}}</label>
-							<meter min="0" max="{{websites.length}}" title="Nombre de sites correspondants : {{skill.proficiency}}" value="{{skill.proficiency}}">
-								<p class="meter"><span class="value" ng-style="width(skill,websites)"></span></p>
-							</meter>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</section>
-	<section id="websites" role="main">
-		<div class="firm">
-			<h1><span>Développeur indépendant, 2010-2013</span></h1>
-			<ul>
-				<li class="website" ng-repeat="website in websites | filter:omycodeFilter | orderBy:websitesOrder:true">
-					<a href="http://{{website.url}}" rel="no-follow" target="_blank">
-						<div class="screenshot">
-							<img ng-src="{{website.image}}" alt="{{website.name}}"/>
-						</div>
-						<hgroup>
-							<h1>{{website.name}}</h1>
-							<h2>{{website.url}}</h2>
-						</hgroup>
-						<p>{{website.description}}</p>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="firm">
-			<h1><span>IDEA Conseil, 2007-2010</span></h1>
-			<ul>
-				<li class="website" ng-repeat="website in websites | filter:ideaFilter | orderBy:websitesOrder:true">
-					<a href="http://{{website.url}}" ng-mouseover="{{highlightSkills(website)}}" rel="no-follow" target="_blank">
-						<div class="screenshot">
-							<img ng-src="{{website.image}}" alt="{{website.name}}"/>
-						</div>
-						<hgroup>
-							<h1>{{website.name}}</h1>
-							<h2>{{website.url}}</h2>
-						</hgroup>
-						<p>{{website.description}}</p>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-	<script>
-		angular.module("websitesapp",["websitesappFilters"]);
-		function WebsiteListCtrl(e,t){t.get("skills/skills.json").success(function(n){e.skills=n;t.get("websites/websites.json").success(function(t){e.websites=t;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];for(var i=0;i<e.websites.length;i++){website=e.websites[i];for(var s=0;s<website.skills.length;s++){websiteSkill=website.skills[s];websiteSkill==skill.name&&skill.proficiency++}}}}})});e.skillsOrder="proficiency";e.websitesOrder="date";e.checkSkill=function(e){e.checked?e.checked=!1:e.checked=!0};e.skillsFilter=function(t){skillChecked=!1;for(var n=0;n<e.skills.length;n++){skillCategory=e.skills[n];for(var r=0;r<skillCategory.skills.length;r++){skill=skillCategory.skills[r];if(skill.checked){skillChecked=!0;for(var i=0;i<t.skills.length;i++){websiteSkill=t.skills[i];if(websiteSkill==skill.name)return!0}}}}return!skillChecked};e.ideaFilter=function(t){return t.firm!="IDEA Conseil"?!1:e.skillsFilter(t)};e.omycodeFilter=function(t){return t.firm!="Développeur indépendant"?!1:e.skillsFilter(t)};e.width=function(e,t){width=Math.round(e.proficiency/t.length*100);return{width:width+"%"}}}WebsiteListCtrl.$inject=["$scope","$http"];
-		angular.module("websitesappFilters",[]).filter("favorite",function(){return function(e){return e?"✭":""}}).filter("check",function(){return function(e){return e?"checked":""}}).filter("join",function(){return function(e){return e.join(", ")}}).filter("percent",function(){return function(e,t){return Math.round(e/t*100)}});
-	</script>
+    <section id="websites">
+        <article class="website" data-skills="html5 css3 php-mysql jquery e-commerce frameworkjs">
+            <figure class="thumb">
+                <img src="images/screenshots/esprit-loft_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/esprit-loft.png" alt="">
+                <figcaption>
+                    <h1>Esprit Loft</h1>
+                    <p>Intégration et développement du site fullscreen et de la boutique Prestashop d'Esprit Loft, vendeur de meubles design personnalisables et sur mesure</p>
+                    <a href="http://www.esprit-loft.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms design">
+            <figure class="thumb">
+                <img src="images/screenshots/ebpplanet_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/ebpplanet.jpg" alt="">
+                 <figcaption>
+                    <h1>EBP Planet</h1>
+                    <p>Réseau social de la formation internationale EBP de l'école de commerce BEM de Bordeaux basé sur le CMF MODx Revolution</p>
+                    <a href="http://www.ebpplanet.bem.edu" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms design">
+            <figure class="thumb">
+                <img src="images/screenshots/happen_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/happen.jpg" alt="">
+                 <figcaption>
+                    <h1>Happe:n</h1>
+                    <p>Site internet du webzine culturel bordelais Happe:n, basé sur MODx Revolution</p>
+                    <a href="http://www.happen.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery e-commerce">
+            <figure class="thumb">
+                <img src="images/screenshots/calle-ocho_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/calle-ocho.jpg" alt="">
+                 <figcaption>
+                    <h1>Calle Ocho</h1>
+                    <p>Intégration et développement de la boutique Prestashop de la Calle Ocho.</p>
+                    <a href="http://www.calle-ocho.eu" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms">
+            <figure class="thumb">
+                <img src="images/screenshots/transmission-aquitaine_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/transmission-aquitaine.jpg" alt="">
+                 <figcaption>
+                    <h1>Transmission Aquitaine</h1>
+                    <p>Intégration et développement du site vitrine de Transmission Aquitaine basé sur MODx Revolution</p>
+                    <a href="http://www.transmission-aquitaine.com" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms microdata">
+            <figure class="thumb">
+                <img src="images/screenshots/boxers-de-bordeaux_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/boxers-de-bordeaux.jpg" alt="">
+                 <figcaption>
+                    <h1>Boxers de bordeaux</h1>
+                    <p>Intégration et développement du site officiel de l'équipe de hockey de Bordeaux basé sur le CMF MODx Revolution</p>
+                    <a href="http://www.hockey-boxers-de-bordeaux.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms e-commerce">
+            <figure class="thumb">
+                <img src="images/screenshots/les-ailes-de-pegase_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/les-ailes-de-pegase.jpg" alt="">
+                <figcaption>
+                    <h1>Les Ailes de Pégase</h1>
+                    <p>Migration d'un site statique vers Wordpress. Création d'un thème Wordpress sur-mesure. Intégration d'une boutique WooCommerce.</p>
+                    <a href="http://www.les-ailes-de-pegase.com" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website">
+            <figure class="thumb" data-skills="html5 css3 php-mysql jquery cms design">
+                <img src="images/screenshots/alvarez-cuisines_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/alvarez-cuisines.jpg" alt="">
+                 <figcaption>
+                    <h1>Alvarez Cuisines</h1>
+                    <p>Site vitrine d'Alvarez Cuisines basé sur le CMF MODx Revolution</p>
+                    <a href="http://www.alvarez-cuisines.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms design">
+            <figure class="thumb">
+                <img src="images/screenshots/soniad_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/soniad.jpg" alt="">
+                 <figcaption>
+                    <h1>Sonia D.</h1>
+                    <p>Site vitrine de la peintre Sonia Degrusson basé sur MODx Revolution</p>
+                    <a href="http://www.soniad.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms frameworkphp">
+            <figure class="thumb">
+                <img src="images/screenshots/vignobles-bertin_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/vignobles-bertin.jpg" alt="">
+                 <figcaption>
+                    <h1>Vignobles Bertin</h1>
+                    <p>Site vitrine multilingue des Vignobles Bertin de Bordeaux basé sur le framework Symfony 1.4</p>
+                    <a href="http://www.vignoblesbertin.com" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="html5 css3 php-mysql jquery cms design">
+            <figure class="thumb">
+                <img src="images/screenshots/atelier-making-of_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/atelier-making-of.jpg" alt="">
+                 <figcaption>
+                    <h1>Atelier Making Of</h1>
+                    <p>Site vitrine d'Atelier Making Of, société de conception architecturale pour les particuliers et les professionnels, basé sur MODx.</p>
+                    <a href="http://www.atelier-making-of.fr" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="website" data-skills="php-mysql cms frameworkjs frameworkphp">
+            <figure class="thumb">
+                <img src="images/screenshots/modx_thumb.png" alt="">
+            </figure>
+            <figure class="details">
+                <img src="images/screenshots/modx.jpg" alt="">
+                 <figcaption>
+                    <h1>Extensions MODx</h1>
+                    <p>Développement de plusieurs extensions MODx s'appuyant sur les frameworks PHP et JS (ExtJS) ainsi que sur l'ORM du CMF : <a href="http://modx.com/extras/package/breadcrumb" rel="no-follow" target="_blank">Breadcrumb</a>, <a href="http://modx.com/extras/package/colorpicker" rel="no-follow" target="_blank">ColorPicker</a>, <a href="http://modx.com/extras/package/customurls" rel="no-follow" target="_blank">CustomUrls</a></p>
+                    <a href="http://modx.com/extras/browse/?search=ben_omycode" class="icon" rel="no-follow" target="_blank">f</a>
+                </figcaption>
+            </figure>
+        </article>
+    </section>
 
 </body>
 </html>

@@ -1,0 +1,431 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/hacks";
+@import "susy";
+
+@include font-face("CantarellRegular", font-files("Cantarell-Regular-webfont.eot", "Cantarell-Regular-webfont.woff", "Cantarell-Regular-webfont.ttf", "Cantarell-Regular-webfont.svg"));
+@include font-face("Icons", font-files("fontello.eot", "fontello.woff", "fontello.ttf", "fontello.svg"));
+
+// A Fluid Grid based on 960gs
+$total-columns: 5;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width;
+$container-style: fluid;
+$tablet: 8;
+$computer: 70em 12;
+
+// Basic layout and typo styles
+.fluid-container {
+}
+
+header, footer { clear: both; }
+
+body{
+	background: 			#000 url(../images/bg.jpeg) no-repeat center center fixed;
+	color: 					#fff;
+	font-family: 			"CantarellRegular";
+	font-size: 				14px;
+	-webkit-font-smoothing: antialiased;
+	@include background-size(cover);
+}
+
+p{
+	line-height: 	1.4em;
+	margin-bottom: 	1em;
+}
+
+a{
+	color: #fff;
+	text-decoration: underline;
+
+	&:hover,
+	&:active,
+	&:focus{
+		text-decoration: none;
+	}
+}
+
+.icon{
+	font-family: "Icons";
+}
+
+// Chrome frame for old browsers
+.chromeframe{
+	background: 	#D90000;
+	border-bottom: 	solid 4px #4F0000;
+	margin-bottom: 	0;
+	padding: 		10px;
+	text-align: 	center;
+	@include filter-gradient(#D90000, #B20000);
+	@include background-image(linear-gradient(top, #D90000, #B20000));
+}
+
+// Top navigation
+#top{
+	display: none;
+
+	ul{
+		float: 			left;
+		white-space: 	nowrap;
+
+		li{
+			border: 	solid 1px rgba(255,255,255,.2);
+			cursor: 	pointer;
+			display: 	none;
+			float: 		left;
+			font-size: 	.85em;
+			margin-right: 1em;
+			padding: 	.3em .3em .4em .3em;
+
+			&.more{
+				display: block;
+			}
+
+			&:hover,
+			&.active{
+				background: rgba(255,255,255,.2);
+			}
+
+			&.hidden{
+				display: none;
+			}
+
+			@include at-breakpoint(10) {
+				&:nth-child(1){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(11) {
+				&:nth-child(2){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(12) {
+				&:nth-child(3){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(13) {
+				&:nth-child(4){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(14) {
+				&:nth-child(5){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(15) {
+				&:nth-child(6){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(16) {
+				&:nth-child(7){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(17) {
+				&:nth-child(8){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(18) {
+				&:nth-child(9){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(19) {
+				&:nth-child(10){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(20) {
+				&:nth-child(11){
+					display: block !important;
+				}
+			}
+			@include at-breakpoint(21) {
+				&:nth-child(12){
+					display: block !important;
+				}
+			}
+		}
+	}
+
+	@include at-breakpoint($tablet) {
+		background: 	#00A3D9;
+		border-bottom: 	solid 4px #003F54;
+		display: 		block;
+		overflow: 		hidden;
+		padding: 		1em 3em;
+		@include filter-gradient(#00A3D9, #0085B2);
+		@include background-image(linear-gradient(top, #00A3D9, #0085B2));
+
+		p{
+			float: 			left;
+			margin-bottom: 	0em;
+			margin-right: 	1em;
+		}
+
+		.icon{
+			float: 		left;
+			font-size: 	1.5em;
+			margin:  	0 10px 0 0;
+		}
+
+		.alert{
+			display: 	none;
+			margin: 	0;
+		}
+	}
+}
+
+// Profile and social links
+#header{
+	padding: 	1em 0 0 0;
+	@include background-image(linear-gradient(top, #000, rgba(0,0,0,0)));
+
+	@include container;
+
+	@include at-breakpoint($tablet) {
+		padding: 	3em 0 0 0;
+		$grid-padding: $gutter-width * 3;
+		@include container;
+	}
+
+	.profile{
+		margin-bottom: 	2em;
+		@include span-columns(5,5);
+
+		hgroup{
+			margin-bottom: 1em;
+		}
+
+		h1{
+			font-size: 1.6em;
+			margin-bottom: .2em;
+		}
+		h2{
+			font-size: 2.5em;
+			margin-left: -.08em;
+		}
+		p{
+			margin-bottom: 0;
+		}
+
+		@include at-breakpoint($tablet) {
+			margin-bottom: 0;
+			@include span-columns(9,12);
+
+			h2{
+				font-size: 3.5em;
+				margin-left: -.08em;
+			}
+			p{
+				width: 	20em;
+			}
+		}
+	}
+	ul{
+		margin: 		auto;
+		width: 			127px;
+
+		@include at-breakpoint($tablet) {
+			float: 	right;
+			margin: 0;
+		}
+
+		li{
+			display: 		block;
+			float: 			left;
+			font-family: 	'Icons';
+			font-size: 		1.4em;
+			height: 		35px;
+			line-height: 	35px;
+			margin-bottom:  10px;
+			margin-right: 	6px;
+			text-align: 	center;
+			width: 			35px;
+			//@include box-shadow(#000 0 0 15px);
+
+			@include at-breakpoint($tablet) {
+				&:first-child{
+					font-size: 		3.5em;
+					height: 		80px;
+					line-height: 	80px;
+					width: 			80px;
+				}
+			}
+
+			a{
+				border-bottom: 		solid 4px #003F54;
+				border-width: 		4px;
+				color: 				#fff;
+				display: 			block;
+				height: 			100%;
+				margin-top: 		0;
+				text-decoration: 	none;
+				width: 				100%;
+				@include filter-gradient(#00A3D9, #0085B2);
+				@include background-image(linear-gradient(top, #00A3D9, #0085B2));
+				@include transition-property(border-width margin-top);
+				@include transition-duration(.1s);
+
+				&:hover,
+				&:active,
+				&:focus{
+					border-width: 	0;
+					margin-top: 	4px;
+				}
+			}
+		}
+	}
+}
+
+// Portfolio
+#websites{
+	margin: 	2em 0 200px 0;
+
+	$grid-padding: 0;
+	@include container;
+
+	@include at-breakpoint($tablet) {
+		$grid-padding: $gutter-width * 3;
+		@include container;
+	}
+	@include at-breakpoint($computer) {
+		$grid-padding: $gutter-width * 3;
+		$container-width: 60%;
+		@include container;
+	}
+
+	.website{
+		margin-bottom: 2em;
+		position: static !important;
+
+		&.hidden{
+			display: none;
+		}
+
+		.thumb{
+			display: none;
+		}
+		.details{
+			border: solid 10px #0086B4;
+			img{
+				display: block;
+				max-width: 100%;
+			}
+			figcaption{
+				background: #0086B4;
+				padding: 	1em 0;
+			}
+			h1{
+				font-size: 2em;
+				margin-bottom: .5em;
+			}
+
+			p{
+				margin-bottom: 	2em;
+			}
+
+			a.icon{
+				display: 			block;
+				text-align: 		center;
+				font-size: 			5em;
+				text-decoration: 	none;
+			}
+		}
+	}
+
+	@include at-breakpoint($tablet) {
+		.website{
+			height: 				200px;
+			margin-bottom: 			10px;
+			position: 				absolute !important;
+			width: 					200px;
+
+			img{
+				display: block;
+			}
+
+			.thumb{
+				cursor: 		pointer;
+				display: 		block;
+				line-height: 	200px;
+				position: 		relative;
+
+				&:after{
+					background: 	#000;
+					content: 		"e";
+					bottom: 		5px;
+					display: 		block;
+					font-family: 	"Icons";
+					font-size: 		5em;
+					left: 			5px;
+					position: 		absolute;
+					text-align: 	center;
+					top: 			5px;
+					right: 			5px;
+					@include opacity(0);
+					@include transition-property(opacity);
+					@include transition-duration(.2s);
+				}
+
+				&:hover{
+					&:after{
+						@include opacity(0.6);
+					}
+				}
+			}
+
+			.details{
+				border: 	none;
+				display: 	none;
+				position: 	relative;
+				overflow: 	hidden;
+
+				figcaption{
+					background: transparent;
+					bottom: 	0;
+					padding: 	2em 2em 2em 30%;
+					position: 	absolute;
+					text-align: right;
+					top: 		0;
+					right: 		0;
+					width: 		40%;
+					@include filter-gradient(#000, #000000);
+					@include background-image(linear-gradient(right, #000, rgba(0,0,0,0)));
+					@include transition-property(right);
+					@include transition-duration(.5s);
+				}
+
+				a.icon{
+					display: 			inline;
+					text-align: 		left;
+				}
+			}
+
+			&.active{
+				height: 	410px;
+				width: 		620px;
+				.thumb{
+					display: none;
+				}
+				.details{
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+@import "ie";

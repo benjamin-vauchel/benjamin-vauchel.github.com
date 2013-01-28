@@ -1,0 +1,66 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+@import "screen";
+
+body{
+	background: transparent;
+	color: 		#000;
+}
+#top{
+	display: none;
+}
+#header{
+	padding:0;
+	width: auto;
+
+	ul{
+		display: none;
+	}
+}
+#websites{
+	padding:0;
+	width: auto;
+
+	.website{
+		overflow: 			hidden;
+		page-break-inside: 	avoid;
+    	position: 			static !important;
+		width: 				auto;
+
+		.thumb{
+			display: 		block;
+			float: 			left;
+			margin-right: 	2em;
+		}
+
+		.details{
+			border: 	none !important;
+			display: 	block;
+
+			img{
+				display: none;
+			}
+
+			figcaption{
+				padding: 	0;
+				position: 	static;
+				background: transparent;
+				text-align: left;
+				width: 		auto;
+
+				a.icon{
+					color: 	#000;
+					display: inline;
+					font-size: 	14px;
+
+					&:after{
+						content: " " attr(href);
+						font-family: "CantarellRegular";
+					}
+				}
+			}
+		}
+	}
+}
