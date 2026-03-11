@@ -90,7 +90,7 @@ export function HeroSection() {
               <span className="text-xs text-muted-foreground font-mono">40 ans</span>
               <span className="text-border">|</span>
               <a
-                href="mailto:benjamin.vauchel@gmail.com"
+                href="mailto:46aslq761@mozmail.com"
                 className="inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-mono text-primary hover:bg-primary/20 transition-colors"
               >
                 <Download className="h-3.5 w-3.5" />

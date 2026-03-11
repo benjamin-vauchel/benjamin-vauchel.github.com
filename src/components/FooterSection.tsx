@@ -14,8 +14,8 @@ export function FooterSection() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="mailto:benjamin.vauchel@gmail.com" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono">
-            <Mail className="h-3.5 w-3.5" /> benjamin.vauchel@gmail.com
+          <a href="mailto:46aslq761@mozmail.com" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono">
+            <Mail className="h-3.5 w-3.5" /> 46aslq761@mozmail.com
           </a>
           <a href="tel:+33669973889" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-mono">
             <Phone className="h-3.5 w-3.5" /> 06.69.97.38.89

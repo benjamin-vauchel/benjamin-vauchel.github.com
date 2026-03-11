@@ -27,7 +27,7 @@ export function Navbar() {
             <a href="https://www.linkedin.com/in/benjamin-vauchel-0a148b117/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="mailto:benjamin.vauchel@gmail.com" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+            <a href="mailto:46aslq761@mozmail.com" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
               <Mail className="h-4 w-4" />
             </a>
           </div>
