@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 173 58% 50%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 210 20% 80%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 14% 55%;
+
+    --accent: 173 58% 50%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 173 58% 50%;
+
+    --radius: 0.75rem;
+
+    /* Mode-specific tokens — default is Data Scientist (teal) */
+    --mode-primary: 173 58% 50%;
+    --mode-primary-light: 173 58% 65%;
+    --mode-glow: 173 58% 50%;
+    --mode-gradient: linear-gradient(135deg, hsl(173, 58%, 50%), hsl(190, 70%, 40%));
+    --mode-shadow: 0 0 40px -10px hsl(173 58% 50% / 0.3);
+
+    /* Backend mode tokens (amber/orange) */
+    --backend-primary: 36 95% 55%;
+    --backend-primary-light: 36 95% 70%;
+    --backend-glow: 36 95% 55%;
+
+    /* Glass effect */
+    --glass-bg: 220 18% 10% / 0.6;
+    --glass-border: 220 14% 22%;
+
+    /* Font families */
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 173 58% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 16% 16%;
+    --sidebar-accent-foreground: 210 20% 80%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 173 58% 50%;
+  }
+
+  /* Backend Engineer mode */
+  .mode-backend {
+    --primary: 36 95% 55%;
+    --accent: 36 95% 55%;
+    --ring: 36 95% 55%;
+    --mode-primary: 36 95% 55%;
+    --mode-primary-light: 36 95% 70%;
+    --mode-glow: 36 95% 55%;
+    --mode-gradient: linear-gradient(135deg, hsl(36, 95%, 55%), hsl(25, 90%, 45%));
+    --mode-shadow: 0 0 40px -10px hsl(36 95% 55% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border backdrop-blur-md;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+
+  .text-gradient {
+    background: var(--mode-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-border {
+    box-shadow: var(--mode-shadow);
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24;
+  }
+
+  .mode-indicator {
+    @apply inline-block w-2 h-2 rounded-full;
+    background: hsl(var(--mode-primary));
+    box-shadow: 0 0 8px hsl(var(--mode-primary) / 0.6);
+  }
+}
