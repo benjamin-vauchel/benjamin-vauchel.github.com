@@ -14,7 +14,14 @@ const formations = [
     title: "Développement web avec Symfony 2",
     level: "Certification",
     school: "SensioLabs",
-    details: "Formation certifiante sur le framework Symfony par ses créateurs",
+    details: "Formation certifiante sur le framework Symfony par SensioLabs",
+  },
+  {
+    year: "2007",
+    title: "Licence professionelle systèmes informatiques et logiciels",
+    level: "BAC+3",
+    school: "IUT de Bordeaux",
+    details: "Algorithmique, programmation, développement web, traitement d'images, traitement du son",
   },
 ];
 

@@ -152,7 +152,7 @@ export function ExperienceSection() {
                     <ul className="space-y-1 mb-3">
                       {exp.description.map((d, j) => (
                         <li key={j} className="text-sm text-secondary-foreground font-body leading-relaxed">
-                          — {d}
+                          - {d}
                         </li>
                       ))}
                     </ul>

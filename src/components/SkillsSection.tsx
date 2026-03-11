@@ -10,7 +10,7 @@ interface SkillCategory {
 const dataSkills: SkillCategory[] = [
   {
     title: "Langages & Libs",
-    skills: ["Python", "Pandas", "NumPy", "Scikit-Learn", "DuckDB", "Jupyter", "Marimo", "Streamlit"],
+    skills: ["Python", "Pandas", "NumPy", "Scikit-Learn", "DuckDB", "Jupyter", "Marimo", "Streamlit", "Matplotlib", "Seaborn"],
   },
   {
     title: "Deep Learning",
@@ -18,11 +18,11 @@ const dataSkills: SkillCategory[] = [
   },
   {
     title: "Domaines IA",
-    skills: ["NLP", "Computer Vision", "ML Supervisé", "ML Non-Supervisé", "Analyse de Sentiments", "Segmentation"],
+    skills: ["NLP", "Computer Vision", "ML Supervisé", "ML Non-Supervisé", "Analyse de Sentiments", "Segmentation sémantique", "Systèmes de Recommandation"],
   },
   {
     title: "MLOps & Big Data",
-    skills: ["MLFlow", "PySpark", "Hadoop", "AWS", "Azure", "GitHub Actions", "Docker"],
+    skills: ["MLFlow", "Weights & Biases", "PySpark", "AWS", "Azure", "GitHub Actions", "Docker"],
   },
 ];
 

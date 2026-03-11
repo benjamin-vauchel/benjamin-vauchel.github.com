@@ -9,7 +9,8 @@ export function HeroSection() {
   const title = isData ? "Data Scientist" : "Backend Engineer";
   const subtitle = isData
     ? "AI Engineer · Machine Learning · Deep Learning · NLP · Computer Vision"
-    : "Symfony Senior · API Platform · Sylius · DDD · 17 ans d'expérience";
+    : "Symfony Senior · API Platform · Sylius · 17 ans d'expérience";
+  const cv = isData ? "CV 2026 - Data Scientist.pdf" : "CV 2026 - Dev Symfony Senior.pdf";
 
   return (
     <section className="relative min-h-screen flex items-center section-padding pt-32">
@@ -89,13 +90,25 @@ export function HeroSection() {
               <span className="text-border">|</span>
               <span className="text-xs text-muted-foreground font-mono">40 ans</span>
               <span className="text-border">|</span>
-              <a
-                href="mailto:46aslq761@mozmail.com"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-mono text-primary hover:bg-primary/20 transition-colors"
-              >
-                <Download className="h-3.5 w-3.5" />
-                Me contacter
-              </a>
+
+              <div className="flex gap-3 mt-2 md:mt-0">
+                <a
+                  href={`/assets/pdfs/${cv}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-mono text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Télécharger CV
+                </a>
+
+                <a
+                  href="mailto:46aslq761@mozmail.com"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-mono text-primary hover:bg-primary/20 transition-colors"
+                >
+                  Me contacter
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>

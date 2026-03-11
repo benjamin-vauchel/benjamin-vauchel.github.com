@@ -2,6 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "@/contexts/ModeContext";
 import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart } from "lucide-react";
 
+import { FileText, Github } from "lucide-react";
+
+interface Link {
+  url: string;
+  label: string;
+  type: "github" | "pdf";
+}
+
 interface Project {
   title: string;
   objective: string;
@@ -9,11 +17,28 @@ interface Project {
   tags: string[];
   icon: React.ReactNode;
   mode: "data" | "backend";
+  links?: Link[];
 }
 
 const projects: Project[] = [
   {
-    title: "Segmentation d'images — Voiture autonome",
+    title: "Segmentation d'images — Voiture autonome - Version 2",
+    objective: "Mise en production d'un modèle de détection de masques et dashboard",
+    highlights: [
+      "Pipeline CI/CD complet (GitHub Actions)",
+      "Déploiement API sur le Cloud de la prédiction",
+      "Monitoring MLFlow et Test Unitaires",
+    ],
+    tags: ["MLOps", "Azure", "CI/CD", "API"],
+    icon: <Eye className="h-5 w-5" />,
+    mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel/oc-p9-developpez-une-preuve-de-concept", label: "Voir le code", type: "github" },
+      { url: "https://github.com/benjamin-vauchel/oc-p9-developpez-une-preuve-de-concept/blob/main/note_methodologique.pdf", label: "Note méthodologique", type: "pdf" }
+    ]
+  },
+  {
+    title: "Segmentation d'images — Voiture autonome - Version 1",
     objective: "Segmentation sémantique de paysages urbains (Cityscapes) pour un système embarqué",
     highlights: [
       "Comparaison de CNN via MLFlow : U-Net, MobileNetV2/V3, EfficientNet",
@@ -23,6 +48,10 @@ const projects: Project[] = [
     tags: ["Computer Vision", "CNN", "MLFlow", "TensorFlow"],
     icon: <Eye className="h-5 w-5" />,
     mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel/oc-p8-traitez-les-images-pour-le-systeme-embarque-d-une-voiture-autonome", label: "Voir le code", type: "github" },
+      { url: "https://github.com/benjamin-vauchel/oc-p8-traitez-les-images-pour-le-systeme-embarque-d-une-voiture-autonome/blob/main/note_technique.pdf", label: "Note technique", type: "pdf" }
+    ]
   },
   {
     title: "Analyse de Sentiments — Bad Buzz",
@@ -32,9 +61,13 @@ const projects: Project[] = [
       "Approches : Bag of Words, RNN+LSTM, BERT/sBERT",
       "Pipeline MLOps complet sur Azure ML",
     ],
-    tags: ["NLP", "Deep Learning", "BERT", "Azure ML"],
+    tags: ["NLP", "Deep Learning", "BERT", "Azure ML", "MLOps"],
     icon: <Brain className="h-5 w-5" />,
     mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel/oc-p7-realisez-une-analyse-de-sentiments-grace-au-deep-learning", label: "Voir le code", type: "github" },
+      { url: "https://github.com/benjamin-vauchel/oc-p7-realisez-une-analyse-de-sentiments-grace-au-deep-learning/blob/main/article_blog_mlops.pdf", label: "Article MLOps", type: "pdf" }
+    ]
   },
   {
     title: "Système de scoring financier",
@@ -47,17 +80,39 @@ const projects: Project[] = [
     tags: ["ML Supervisé", "Scikit-Learn", "SHAP", "Optuna"],
     icon: <BarChart3 className="h-5 w-5" />,
     mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel", label: "Voir le code", type: "github" }
+    ]
   },
   {
     title: "Recommandation de contenu",
-    objective: "Application de recommandation de livres — architecture bout-en-bout",
+    objective: "Application complète de recommandation de livres",
     highlights: [
       "Sélection d'architecture logicielle",
       "Scripts de chaîne de traitements IA end-to-end",
+      "Interface Streamlit et déploiement",
     ],
-    tags: ["Recommandation", "Python", "Streamlit"],
+    tags: ["Recommandation", "Streamlit", "Python", "End-to-End"],
     icon: <BookOpen className="h-5 w-5" />,
     mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel", label: "Voir le code", type: "github" }
+    ]
+  },
+  {
+    title: "Classification d'images sur le Cloud",
+    objective: "Architecture Big Data pour extraire des features d'un large dataset d'images",
+    highlights: [
+      "Création d'un environnement cloud EMR sur AWS",
+      "Calculs distribués avec PySpark sur clusters",
+    ],
+    tags: ["Big Data", "AWS EMR", "PySpark", "Cloud"],
+    icon: <Server className="h-5 w-5" />,
+    mode: "data",
+    links: [
+      { url: "https://github.com/benjamin-vauchel", label: "Voir le code", type: "github" },
+      { url: "/assets/pdfs/vision-note-technique.pdf", label: "Note Technique", type: "pdf" }
+    ]
   },
   {
     title: "Marketplace Recyclivre",
@@ -163,13 +218,33 @@ export function ProjectsSection() {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag) => (
                     <span key={tag} className="rounded bg-secondary px-2 py-0.5 text-[10px] font-mono text-muted-foreground">
                       {tag}
                     </span>
                   ))}
                 </div>
+
+                {project.links && project.links.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-border/50">
+                    {project.links.map((link, linkIdx) => (
+                      <a
+                        key={linkIdx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-1.5 text-[11px] font-mono transition-colors ${link.type === 'github'
+                          ? 'text-muted-foreground hover:text-foreground'
+                          : 'text-primary hover:text-primary/70'
+                          }`}
+                      >
+                        {link.type === 'github' ? <Github className="h-3.5 w-3.5" /> : <FileText className="h-3.5 w-3.5" />}
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
           </motion.div>
