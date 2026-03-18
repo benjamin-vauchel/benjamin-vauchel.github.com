@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "@/contexts/ModeContext";
-import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users } from "lucide-react";
+import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users, Speaker, Speech, Map, MapPin } from "lucide-react";
 
 import { FileText, Github } from "lucide-react";
 
@@ -17,10 +17,44 @@ interface Project {
   tags: string[];
   icon: React.ReactNode;
   mode: "data" | "backend";
+  wip?: boolean;
   links?: Link[];
+  image?: string;
 }
 
 const projects: Project[] = [
+  {
+    wip: true,
+    title: "Analyse concurrencielle des salles d'escalade",
+    objective: "Trouver le meilleur emplacement pour une nouvelle salle d'escalade.",
+    highlights: [
+      "Scrapping de données provenant d'OpenStreetMap, Google Maps et DataGouv",
+      "Création d'un pipeline de traitement de données via Dagster et dlt",
+      "Création d'une carte interactive en React pour visualiser les données",
+    ],
+    image: "/assets/Bloc Locator.png",
+    tags: ["Dagster", "React", "Scrapping", "dlt", "OpenStreetMap", "Google Maps", "DataGouv"],
+    icon: <MapPin className="h-5 w-5" />,
+    mode: "data",
+    links: []
+  },
+  {
+    wip: true,
+    title: "Fact checker de débats politiques en temps réel",
+    objective: "Apporter des éléments factuels aux débats politiques en temps réel à partir de l'analyse d'une source vidéo.",
+    highlights: [
+      "Scrapping de débats politiques sur Youtube et labelling manuel",
+      "Benchmarking de différentes solutions de dubbing, claim detection et fact-checking via Weights & Biases",
+      "Reconnaissance vocale et visuelle des intervenants",
+      "Intégration des solutions dans un pipeline de traitement vidéo accessible via API",
+      "Interface React pour analyser les débats et visualiser les résultats",
+    ],
+    image: "/assets/Agora-Live-Check-480.gif",
+    tags: ["Fact-checking", "Pyannote", "Whisper", "Kyutai", "Voxtral", "HuggingFace", "Mistral", "Camembert", "Tavily", "W&B", "FastAPI", "React"],
+    icon: <Speech className="h-5 w-5" />,
+    mode: "data",
+    links: []
+  },
   {
     title: "Segmentation d'images — Voiture autonome - POC",
     objective: "Veille technologique et identification d'une méthode plus récente visant à améliorer la performance d'un modèle précédent de segmentation sémantique basé sur U-Net et MobileNetV3Small",
@@ -248,6 +282,7 @@ export function ProjectsSection() {
                   <div className="rounded-lg bg-primary/10 p-2 text-primary">
                     {project.icon}
                   </div>
+
                   <div className="flex-1">
                     <h4 className="font-semibold text-foreground text-sm leading-tight">{project.title}</h4>
                     <p className="text-xs text-muted-foreground mt-1 font-body">{project.objective}</p>
@@ -264,6 +299,11 @@ export function ProjectsSection() {
                 </ul>
 
                 <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.wip && (
+                    <span className="rounded bg-yellow-600 px-2 py-0.5 text-[10px] font-mono text-foreground">
+                      WIP
+                    </span>
+                  )}
                   {project.tags.map((tag) => (
                     <span key={tag} className="rounded bg-secondary px-2 py-0.5 text-[10px] font-mono text-muted-foreground">
                       {tag}
@@ -271,30 +311,44 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                {project.links && project.links.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-border/50">
-                    {project.links.map((link, linkIdx) => (
-                      <a
-                        key={linkIdx}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center gap-1.5 text-[11px] font-mono transition-colors ${link.type === 'github'
-                          ? 'text-muted-foreground hover:text-foreground' : link.type === 'pdf'
-                            ? 'text-primary hover:text-primary/70' : 'text-blue-500 hover:text-blue-500/70'
-                          }`}
-                      >
-                        {link.type === 'github' ? <Github className="h-3.5 w-3.5" /> : link.type === 'pdf' ? <FileText className="h-3.5 w-3.5" /> : <Linkedin className="h-3.5 w-3.5" />}
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
+                {
+                  project.image && (
+                    <div className="mt-4">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full rounded-lg border border-border"
+                      />
+                    </div>
+                  )
+                }
+
+                {
+                  project.links && project.links.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-border/50">
+                      {project.links.map((link, linkIdx) => (
+                        <a
+                          key={linkIdx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-1.5 text-[11px] font-mono transition-colors ${link.type === 'github'
+                            ? 'text-muted-foreground hover:text-foreground' : link.type === 'pdf'
+                              ? 'text-primary hover:text-primary/70' : 'text-blue-500 hover:text-blue-500/70'
+                            }`}
+                        >
+                          {link.type === 'github' ? <Github className="h-3.5 w-3.5" /> : link.type === 'pdf' ? <FileText className="h-3.5 w-3.5" /> : <Linkedin className="h-3.5 w-3.5" />}
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )
+                }
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
-    </section>
+    </section >
   );
 }

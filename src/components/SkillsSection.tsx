@@ -22,7 +22,7 @@ const dataSkills: SkillCategory[] = [
   },
   {
     title: "MLOps & Big Data",
-    skills: ["MLFlow", "Weights & Biases", "PySpark", "AWS", "Azure", "GitHub Actions", "Docker", "DVC"],
+    skills: ["MLFlow", "Weights & Biases", "PySpark", "AWS", "Azure", "GitHub Actions", "Docker", "DVC", "Dagster", "Dlt"],
   },
 ];
 
