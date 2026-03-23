@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "@/contexts/ModeContext";
-import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users, Speaker, Speech, Map, MapPin, BrainIcon, Smile } from "lucide-react";
+import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users, Speaker, Speech, Map, MapPin, BrainIcon, Smile, TagIcon, Bot } from "lucide-react";
 
 import { FileText, Github } from "lucide-react";
 
@@ -209,48 +209,110 @@ const projects: Project[] = [
     links: []
   },
   {
-    title: "Marketplace Recyclivre",
-    objective: "Refonte complète de la boutique et création d'une marketplace",
+    title: "Merchandising  - Matou Technologies",
+    objective: "Solution de merchandising dans le cadre de la refonte de l'ERP de l'entreprise",
     highlights: [
-      "Architecture Sylius + Origami",
-      "Bot conversationnel SAV (Botpress + Dialogflow)",
-      "Formation et management de l'équipe technique",
+      "API Symfony avec API Platform",
+      "Indexation des catégories via Typesense",
+      "Règles métiers complexes gérées via Directus",
+      "Architecture DDD, tests PHPUnit",
     ],
-    tags: ["Sylius", "Symfony", "Marketplace", "Botpress"],
+    tags: ["API Platform", "Typesense", "DDD", "Directus"],
+    icon: <TagIcon className="h-5 w-5" />,
+    mode: "backend",
+  },
+  {
+    title: "Boutique e-commerce — Onatera",
+    objective: "Refonte de la boutique e-commerce sous Sylius",
+    highlights: [
+      "Modules de paiement Stripe, Payplug, Adyen",
+      "Indexation des produits via Algolia pour recherche sémantique et catégorisation",
+      "Intégration des pages de contenu via le CMS headless Prismic",
+      "Composants front Catalyst",
+    ],
+    tags: ["Sylius", "Algolia", "Prismic", "Catalyst"],
     icon: <ShoppingCart className="h-5 w-5" />,
     mode: "backend",
   },
   {
-    title: "Merchandising Matou Technologies",
-    objective: "Solution de merchandising et refonte ERP interne",
+    title: "Chatbot SAV - Recyclivre",
+    objective: "Mise en place d'un chatbot pour répondre aux questions fréquentes des clients sur leurs commandes",
     highlights: [
-      "API Symfony avec API Platform et Typesense",
-      "Architecture DDD, tests PHPUnit",
-      "Analyse UX : enquêtes contextuelles, user journey, prototypage Figma",
+      "Worflow Botpress",
+      "Détection de l'intention via Dialogflow",
+      "Connexion API de l'ERP pour récupération des commandes",
     ],
-    tags: ["API Platform", "Typesense", "DDD", "Figma"],
+    tags: ["Botpress", "Dialogflow"],
+    icon: <Bot className="h-5 w-5" />,
+    mode: "backend",
+  },
+  {
+    title: "Boutique e-commerce - Recyclivre",
+    objective: "Refonte complète de la boutique Recyclivre sous Sylius",
+    highlights: [
+      "Cadrage projet avec prestataire externe",
+      "Synchronisation des données entre Sylius et l'ERP",
+    ],
+    tags: ["Sylius", "Symfony"],
+    icon: <ShoppingCart className="h-5 w-5" />,
+    mode: "backend",
+  },
+  {
+    title: "Marketplace - Recyclivre",
+    objective: "Mise en place d'une marketplace Origami",
+    highlights: [
+      "Cadrage projet avec prestataire externe",
+    ],
+    tags: ["Origami"],
+    icon: <ShoppingCart className="h-5 w-5" />,
+    mode: "backend",
+  },
+  {
+    title: "Solution marketing — Webrivage",
+    objective: "Automatisation des campagnes emailing grâce à un ciblage comportemental spécifique pour chaque offre",
+    highlights: [
+      "Gestion de volumes massifs de données via SQS",
+      "Tracking des clics et des ouvertures dans DynamoDB",
+      "Adapters pour emailin providers (Mailgun, Sendinblue, Sendgrid ...)"
+    ],
+    tags: ["Symfony", "Docker", "AWS", "DynamoDB", "SQS", "DDD", "CQRS"],
     icon: <Server className="h-5 w-5" />,
     mode: "backend",
   },
   {
-    title: "E-commerce international — Onatera",
-    objective: "Ouverture de la boutique e-commerce à l'international",
+    title: "Solutions marketing — Webrivage",
+    objective: "Détection des utilisateurs connectés pour ciblage marketing",
     highlights: [
-      "Refonte Sylius avec moteur de recherche Algolia",
-      "Composants front Catalyst",
+      "Backend NestJS hébergé sur AWS lambda",
+      "Gestion de volumes massifs de données",
     ],
-    tags: ["Sylius", "Algolia", "E-commerce", "International"],
-    icon: <ShoppingCart className="h-5 w-5" />,
+    tags: ["Docker", "AWS", "API Gateway", "AWS Lambda", "NestJS", "Kinesis", "DynamoDB"],
+    icon: <Server className="h-5 w-5" />,
     mode: "backend",
   },
   {
-    title: "Solutions marketing — Webrivage",
-    objective: "Plateforme de collecte de données et emailing à fort trafic",
+    title: "Solutions emailing — Webrivage",
+    objective: "Backoffice interne pour la gestion et l'envoi de campagnes emailing",
     highlights: [
-      "Architecture haute disponibilité Symfony / Docker / AWS",
+      "Module de templating emailing via Twig",
+      "Règles de ciblage de populations complexes",
       "Gestion de volumes massifs de données",
+      "Tracking des clics et des ouvertures dans DynamoDB",
+      "Adapters pour emailin providers (Mailgun, Sendinblue, Sendgrid ...)"
     ],
-    tags: ["Symfony", "Docker", "AWS", "High Traffic"],
+    tags: ["Symfony", "Docker"],
+    icon: <Server className="h-5 w-5" />,
+    mode: "backend",
+  },
+  {
+    title: "Backoffice interne — Webrivage",
+    objective: "Backoffice interne pour la gestion de campagnes marketing",
+    highlights: [
+      "CRUD",
+      "Historisation des modifications utilisateurs",
+      "Editeur de YAML via AceEditor",
+    ],
+    tags: ["Symfony", "Docker", "Twig", "AceEditor", "Bootstrap"],
     icon: <Server className="h-5 w-5" />,
     mode: "backend",
   },

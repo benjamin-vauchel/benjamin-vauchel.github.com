@@ -3,7 +3,7 @@ import { GraduationCap } from "lucide-react";
 
 const formations = [
   {
-    year: "2025",
+    year: "2026",
     title: "Expert en Data Science — AI Engineer",
     level: "BAC+5 (RNCP Niveau 7)",
     school: "OpenClassrooms",

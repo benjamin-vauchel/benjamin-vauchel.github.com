@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "@/contexts/ModeContext";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Chrome } from "lucide-react";
 
 interface Experience {
   period: string;
@@ -31,6 +31,7 @@ const experiences: Experience[] = [
     company: "Matou Technologies",
     location: "Rousset",
     description: [
+      "Benchmarking de solutions CMS headless et moteurs de recherche pour la refonte de l'ERP de l'entreprise",
       "Solution de merchandising avec API Platform et Typesense",
       "Analyse des besoins métiers pour la refonte d'un ERP : enquêtes contextuelles, user journey, prototypage Figma",
       "Développement d'API Symfony (DDD, API Platform, tests PHPUnit)",
@@ -69,8 +70,9 @@ const experiences: Experience[] = [
     company: "Webrivage",
     location: "Aix-en-Provence",
     description: [
-      "Solutions marketing à fort trafic : collecte de données, emailing de masse, notifications d'activités",
-      "Stack : Symfony / Docker / AWS",
+      "Développement de solutions marketing (collecte de données, emailing, notifications d’activités) à fort trafic et volume de données en Symfony / Docker / AWS.",
+      "Gestion de projet en méthode agile (sprint, retrospective, planning poker).",
+      "Formation des nouveaux développeurs aux standards de qualité interne à la société"
     ],
     tags: ["Symfony", "Docker", "AWS", "High Traffic"],
     mode: "backend",
@@ -80,15 +82,41 @@ const experiences: Experience[] = [
     title: "Développeur PHP",
     company: "3SC Global Services",
     location: "Marseille",
-    description: ["Développement d'applications web PHP"],
+    description: [
+      "Développement de sites dynamiques PHP et Prestashop",
+      "Développement de la nouvelle version du CMS 3SC : POO, ORM (RedBean), Composer, PHPUnit, Monolog, Whoops, NestedSet, Assetic (Compass + Yui), Clockwork ...",
+      "Développement d’outils internes : Scripts PHP, extension Google Chrome (AngularJS), API (Silex), Box Vagrant, Image Docker",
+      "Intégration de sites responsives (Foundation)",
+      "Support client (Zendesk)"
+    ],
     mode: "backend",
   },
   {
-    period: "2007 – 2013",
+    period: "2010 – 2013",
     title: "Développeur Web Full Stack",
-    company: "Auto Entrepreneur & Idea Conseil",
+    company: "Auto Entrepreneur",
     location: "Bordeaux",
-    description: ["Freelance puis en agence – sites vitrines et applications web"],
+    description: [
+      "Design, développement et intégration de sites PHP, MODx, Wordpress, Prestashop et symfony (HTML5, CSS3, Less, Sass, Compass)",
+      "Développement d’extensions MODx : Breadcrumb, CustomUrls, ColorPicker",
+      "Rédaction de documentations et formations vidéos",
+      "Gestion de projet via Redmine",
+      "Intégration continue via SVN & Jenkins",
+    ],
+    mode: "backend",
+  },
+  {
+    period: "2007 – 2010",
+    title: "Développeur Web Full Stack",
+    company: "Idea Conseil",
+    location: "Bordeaux",
+    description: [
+      "Mise aux normes W3C et WCAG 1.0 des sites de l’agence",
+      "Développement d’outils internes de SEO et de contrôle de qualité",
+      "Déploiement du système de versionning SVN",
+      "Design, développement et intégration",
+      "Migration de sites statiques en sites dynamiques",
+    ],
     mode: "backend",
   },
 ];

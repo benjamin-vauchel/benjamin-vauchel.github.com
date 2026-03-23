@@ -33,11 +33,11 @@ const backendSkills: SkillCategory[] = [
   },
   {
     title: "Bases de données",
-    skills: ["MySQL", "PostgreSQL", "Algolia", "Typesense", "ElasticSearch"],
+    skills: ["MySQL", "PostgreSQL", "Algolia", "Typesense", "ElasticSearch", "Doctrine"],
   },
   {
     title: "Architecture",
-    skills: ["DDD", "API REST", "Microservices", "Docker", "AWS", "CI/CD"],
+    skills: ["DDD", "API REST", "CQRS", "Microservices", "Docker", "AWS", "CI/CD"],
   },
   {
     title: "Méthodologies",
