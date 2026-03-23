@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "@/contexts/ModeContext";
-import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users, Speaker, Speech, Map, MapPin } from "lucide-react";
+import { ExternalLink, Brain, Eye, BarChart3, BookOpen, Server, ShoppingCart, Linkedin, ShoppingBasket, Users, Speaker, Speech, Map, MapPin, BrainIcon, Smile } from "lucide-react";
 
 import { FileText, Github } from "lucide-react";
 
@@ -104,7 +104,7 @@ const projects: Project[] = [
       "Tests unitaires PyTest"
     ],
     tags: ["NLP", "Deep Learning", "BERT", "sBERT", "Fasttext", "Glove", "Azure ML", "MLOps", "PyTest", "CI/CD", "Github Actions", "Tensorflow"],
-    icon: <Brain className="h-5 w-5" />,
+    icon: <Smile className="h-5 w-5" />,
     mode: "data",
     links: [
       { url: "https://github.com/benjamin-vauchel/oc-p7-realisez-une-analyse-de-sentiments-grace-au-deep-learning", label: "Code", type: "github" },
@@ -192,6 +192,21 @@ const projects: Project[] = [
     links: [
       { url: "https://github.com/benjamin-vauchel/oc-p11-realisez-un-traitement-dans-un-environnement-big-data-sur-le-cloud", label: "Code", type: "github" },
     ]
+  },
+  {
+    title: "AI Tutor",
+    objective: "Organiser et synthétiser des cours de formation pour une aide à la révision.",
+    highlights: [
+      "Synthèse de cours via LLM (LangChain + OpenAI)",
+      "RAG sur l'ensemble des cours (LangChain + ChromaDB)",
+      "Dialogue socratique (LangChain + OpenAI)",
+      "Génération de podcasts (LangChain + OpenAI)",
+      "Interface ReactJS et shadcn/ui ",
+    ],
+    tags: ["React", "FastAPI", "LLM", "LangChain", "RAG", "ChromaDB", "shadcn/ui"],
+    icon: <BrainIcon className="h-5 w-5" />,
+    mode: "data",
+    links: []
   },
   {
     title: "Marketplace Recyclivre",

@@ -10,7 +10,7 @@ interface SkillCategory {
 const dataSkills: SkillCategory[] = [
   {
     title: "Langages & Libs",
-    skills: ["Python", "Pandas", "NumPy", "Scikit-Learn", "DuckDB", "Jupyter", "Marimo", "Streamlit", "Matplotlib", "Seaborn", "FastAPI"],
+    skills: ["Python", "Pandas", "NumPy", "Scikit-Learn", "DuckDB", "Jupyter", "Marimo", "Streamlit", "Matplotlib", "Seaborn", "FastAPI", "LangChain", "ChromaDB"],
   },
   {
     title: "Deep Learning",
